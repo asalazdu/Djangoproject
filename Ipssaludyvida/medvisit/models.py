@@ -1,8 +1,5 @@
 from django.db import models
 
-# Create your models here.
-from django.db import models
-
 class CausaMotivo(models.Model):
     codigo = models.CharField(max_length=2, primary_key=True)
     nombre = models.CharField(max_length=100, null=True, blank=True)
@@ -44,6 +41,9 @@ class Entidad(models.Model):
     class Meta:
         db_table = 'Entidad'
 
+    def __str__(self):
+        return self.nombre
+
 
 class Etnia(models.Model):
     codigo = models.CharField(max_length=5, primary_key=True)
@@ -52,6 +52,9 @@ class Etnia(models.Model):
     class Meta:
         db_table = 'Etnia'
 
+    def __str__(self):
+        return self.nombre
+
 
 class Genero(models.Model):
     codigo = models.CharField(max_length=2, primary_key=True)
@@ -59,6 +62,9 @@ class Genero(models.Model):
 
     class Meta:
         db_table = 'Genero'
+    
+    def __str__(self):
+        return self.nombre
 
 
 class ModalidadRealizacion(models.Model):
@@ -76,6 +82,9 @@ class Municipio(models.Model):
 
     class Meta:
         db_table = 'Municipio'
+    
+    def __str__(self):
+        return self.nombre
 
 
 class Ocupacion(models.Model):
@@ -85,6 +94,11 @@ class Ocupacion(models.Model):
 
     class Meta:
         db_table = 'Ocupacion'
+
+    def __str__(self):
+        return self.nombre
+    
+    
 
 
 class Oposicion(models.Model):
@@ -128,7 +142,10 @@ class Pais(models.Model):
     nombre = models.CharField(max_length=200, null=True, blank=True)
 
     class Meta:
-        db_table = 'Pais'
+        db_table = 'Pais'   
+
+    def __str__(self):
+        return self.nombre
 
 
 class Sexo(models.Model):
@@ -137,12 +154,18 @@ class Sexo(models.Model):
     class Meta:
         db_table = 'Sexo'
 
+    def __str__(self):
+        return self.nombre
+
 
 class TipoDocumento(models.Model):
     codigo = models.CharField(max_length=2, primary_key=True)
     nombre = models.CharField(max_length=50, null=True, blank=True)
     class Meta:
         db_table = 'TipoDocumento'
+
+    def __str__(self):
+        return self.nombre
 
 
 
@@ -173,6 +196,9 @@ class ZonaResidencial(models.Model):
     class Meta:
         db_table = 'ZonaResidencial'
 
+    def __str__(self):
+        return self.nombre
+
 
 class Paciente(models.Model):
     Id = models.AutoField(primary_key=True)
@@ -192,3 +218,54 @@ class Paciente(models.Model):
     CodigoEtnia = models.ForeignKey(Etnia, on_delete=models.CASCADE)
     CodigoZonaResidencial = models.ForeignKey(ZonaResidencial, on_delete=models.CASCADE)
     CodigoEntidad = models.ForeignKey(Entidad, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = 'Paciente'
+
+
+class ServicioSalud(models.Model):
+    GRUPO_SERVICIOS_CHOICES = [
+        ('01', 'Consulta externa'),
+        ('02', 'Apoyo diagnostico y complementacion terapeutica'),
+        ('03', 'Internación'),
+        ('04', 'Quirurgico'),
+        ('05', 'Atencion Inmediata'),
+    ]
+
+    ENTORNO_CHOICES = [
+        ('01', 'Hogar'),
+        ('02', 'Comunitario'),
+        ('03', 'Escolar'),
+        ('04', 'Laboral'),
+        ('05', 'Institucional'),
+    ]
+
+    TRIAGE_CHOICES = [
+        ('01', 'Triage I'),
+        ('02', 'Triage II'),
+        ('03', 'Triage III'),
+        ('04', 'Triage IV'),
+        ('05', 'Triage V'),
+    ]
+
+    TIPO_DIAGNOSTICO_CHOICES = [
+        ('01', 'Impresión diagnostica'),
+        ('02', 'Confirmado nuevo'),
+        ('03', 'Confirmado repetido'),
+    ]
+
+    Id = models.AutoField(primary_key=True)
+    IdPaciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+    CodigoPrestadoServicio = models.CharField(max_length=100)
+    FechaHoraAtencion = models.DateTimeField()
+    CodigoModalidadRealizacion = models.ForeignKey(ModalidadRealizacion, on_delete=models.CASCADE)
+    CodigoGrupoServicio = models.CharField(max_length=100, choices=GRUPO_SERVICIOS_CHOICES)
+    CodigoEntorno = models.CharField(max_length=100, choices=ENTORNO_CHOICES)
+    CodigoViaIngreso = models.ForeignKey(ViaIngreso, on_delete=models.CASCADE)
+    CodigoCausaMotivo = models.ForeignKey(CausaMotivo, on_delete=models.CASCADE)
+    ClasificacionTriage = models.CharField(max_length=100, choices=TRIAGE_CHOICES)
+    CodigoDiagnostico = models.ForeignKey(Diagnostico, on_delete=models.CASCADE)
+    TipoDiagnosticoPrincipal = models.CharField(max_length=100, choices=TIPO_DIAGNOSTICO_CHOICES)
+
+    class Meta:
+        db_table = 'ServicioSalud'

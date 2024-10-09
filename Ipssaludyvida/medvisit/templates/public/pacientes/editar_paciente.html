@@ -1,0 +1,89 @@
+{% extends "public/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+<div class="card" style="border-radius: 0px !important">
+    <div class="row justify-content-center mb-2">
+        <div class="col-md-12 mb-4">
+            <h3 class="text-center mt-5 mb-3">
+                <a href="{% url 'listarPacientes' %}" class="text-decoration-none">
+                    <i class="bi bi-arrow-left-circle"></i>
+                  </a>
+                EDITAR PACIENTE</h3>
+            <hr />
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <!-- Primera columna -->
+                            <div class="col-md-6" style="padding: 10px;">
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoTipoDocumento|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.Identificacion|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.PrimerApellido|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.SegundoApellido|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.PrimerNombre|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.SegundoNombre|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.FechaNacimiento|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.HoraNacimiento|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <!-- Segunda columna -->
+                            <div class="col-md-6" style="padding: 10px;">
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoSexo|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoGenero|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoOcupacion|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoPaisResidencia|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoMunicipio|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoEtnia|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoZonaResidencial|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoEntidad|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botón de guardar -->
+                        <div class="form-group mt-3 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
