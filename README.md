@@ -19,25 +19,28 @@ Asegúrate de tener instalado lo siguiente en tu máquina:
     - cd Djangoproject
 
 3. **Crea un entorno virtual:**
+    - En la terminal ejecuta el siguiente comando instalar la libreria virtualenv:
+      pip install virtualenv
     - En la terminal ejecuta el siguiente comando para crear un entorno virutal:
     - En Windows:
-      python -m venv venv
+      virtualenv nombre_del_entorno
     1. **Ativa el entorno:**
         .\venv\Scripts\activate
     - En macOS/Linux:
         python3 -m venv venv
     1. **Activa el entorno:**
     - source venv/bin/activate
+4. **Instala las totas las librerias que necesita el proyecto:**
+    - En la terminal ejecuta el siguiente comando instalar django:
+      pip install -r requirements.txt
+
 
 ## Ejecución del proyecto
 
-1. **Aplica las migraciones:**
-    - python manage.py migrate
-
-2. **Ejecuta el servidor de desarrollo:**
+1. **Ejecuta el servidor de desarrollo:**
     - python manage.py runserver
 
-3. **Accede a la aplicación:**
+2. **Accede a la aplicación:**
     - Abre tu navegador y visita http://127.0.0.1:8000/
 
 ## NOTAS
