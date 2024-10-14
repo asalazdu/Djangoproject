@@ -2,4 +2,4 @@ from django.db import models
 
 # Create your models here.
 
-# comentario pruebas
+# Aqui van los modelos del proyecto
