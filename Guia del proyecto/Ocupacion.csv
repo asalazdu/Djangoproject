@@ -1,0 +1,219 @@
+codigo,nombre,codigo_padre
+110,Oficiales de las Fuerzas Militares,11
+210,Suboficiales de las Fuerzas Militares,21
+310,Otros miembros de las Fuerzas Militares,31
+1111,Directores formuladores de políticas y normas,111
+1112,Directores del gobierno,111
+1113,Jefes de comunidades étnicas,111
+1114,"Dirigentes de organizaciones con un interés específico
+(partidos políticos, sindicatos y organizaciones sociales)",111
+1120,Directores y gerentes generales,112
+1211,Directores financieros,121
+1212,Directores de recursos humanos,121
+1213,Directores de políticas y planeación,121
+1219,Directores de administración y servicios no clasificados en otros grupos primarios,121
+1221,Directores de ventas y comercialización,122
+1222,Directores de publicidad y relaciones públicas,122
+1223,Directores de investigación y desarrollo,122
+1311,Directores de producción agropecuaria y silvicultura,131
+1312,Directores de producción de piscicultura y pesca,131
+1321,Directores de industrias manufactureras,132
+1322,Directores de explotaciones de minería,132
+1323,Directores de empresas de construcción,132
+1324,"Directores de empresas de abastecimiento, distribución y afines",132
+1330,Directores de servicios de tecnología de la información y las comunicaciones,133
+1341,Directores de servicios de cuidados infantiles,134
+1342,Directores de servicios de salud,134
+1343,Directores de servicios de atención a personas mayores,134
+1344,Directores  de servicios de bienestar social,134
+1345,Directores de servicios de educación,134
+1346,"Gerentes de sucursales de bancos, de servicios financieros y de seguros",134
+1349,Directores y gerentes de servicios profesionales no clasificados en otros grupos primarios,134
+1411,Gerentes de hoteles,141
+1412,Gerentes de restaurantes,141
+1420,Gerentes de comercios al por mayor y al por menor,142
+1431,"Gerentes de centros deportivos, de esparcimiento y culturales",143
+1439,Otros gerentes de servicios no clasificados en otros grupos primarios,143
+3111,Técnicos en ciencias físicas y químicas,311
+3112,Técnicos en ingeniería civil,311
+3113,Electrotécnicos,311
+3114,Técnicos en electrónica,311
+3115,Técnicos en ingeniería mecánica,311
+3116,Técnicos en química industrial,311
+3117,Técnicos de minas y metalurgia,311
+3118,Delineantes y dibujantes técnicos,311
+3119,Técnicos en ciencias físicas y en ingeniería no clasificados en otros grupos primarios,311
+3121,Supervisores de minas,312
+3122,Supervisores de industrias manufactureras,312
+3123,Supervisores de la construcción,312
+3131,Operadores de plantas de producción de energía,313
+3132,"Operadores de incineradores, instalaciones de tratamiento de agua y afines",313
+3133,Controladores de instalaciones de procesamiento de productos químicos,313
+3134,Operadores de instalaciones de refinación de petróleo y gas natural,313
+3135,Controladores de procesos de producción de metales,313
+3139,Técnicos en control de procesos no clasificados en otros grupos primarios,313
+3141,Técnicos en ciencias biológicas (excluyendo la medicina),314
+3142,Técnicos agropecuarios,314
+3143,Técnicos forestales,314
+3151,Oficiales maquinistas en navegación,315
+3152,"Capitanes, oficiales de cubierta y prácticos",315
+3153,Pilotos de aviación y afines,315
+3154,Controladores de tráfico aéreo y marítimo,315
+3155,Técnicos en seguridad aeronáutica,315
+3211,Técnicos en aparatos de diagnóstico y tratamiento médico,321
+3212,Técnicos de laboratorios médicos,321
+3213,Técnicos y asistentes farmacéuticos,321
+3214,Técnicos de prótesis médicas y dentales,321
+3221,Técnicos y profesionales del nivel medio en enfermería,322
+3222,Técnicos y profesionales del nivel medio en partería,322
+3230,Técnicos y profesionales del nivel medio en medicina tradicional y alternativa,323
+3240,Técnicos y asistentes veterinarios,324
+3251,Higienistas y asistentes odontologícos,325
+3252,Técnicos en documentación sanitaria,325
+3253,Trabajadores comunitarios de la salud,325
+3254,Técnicos en optometría y ópticas,325
+3255,Técnicos y asistentes terapeutas,325
+3256,Asistentes médicos,325
+3257,"Inspectores de seguridad, salud ocupacional, medioambiental y afines",325
+3258,Técnicos en atención prehospitalaria,325
+3259,Otros técnicos y profesionales del nivel medio de la salud no clasificados en otros grupos primarios,325
+3311,"Agentes de bolsa, cambio y otros servicios financieros",331
+3312,Analistas de préstamos y créditos,331
+3313,Técnicos de contabilidad y afines,331
+3314,"Técnicos y profesionales del nivel medio de servicios estadísticos, matemáticos y afines",331
+3315,Tasadores y evaluadores,331
+3321,Agentes de seguros,332
+3322,Representantes comerciales,332
+3323,Agentes de compras,332
+3324,Agentes de operaciones comerciales y consignatarios,332
+3331,Declarantes o gestores de aduana,333
+3332,Organizadores de conferencias y eventos,333
+3333,Agentes de empleo y contratistas de mano de obra,333
+3334,Agentes inmobiliarios,333
+3339,Agentes de servicios comerciales no clasificados en otros grupos primarios,333
+3341,Supervisores de oficina,334
+3342,Secretarios jurídicos,334
+3343,Secretarios administrativos y ejecutivos,334
+3344,Secretarios médicos,334
+3351,Agentes de aduanas e inspectores de fronteras,335
+3352,Agentes de administración tributaria,335
+3353,Agentes de servicios de seguridad social,335
+3354,Agentes gubernamentales de expedición de licencias,335
+3355,Inspectores de policía y detectives,335
+3359,Agentes de gobierno y profesionales del nivel medio para la aplicación de regulaciones no clasificados en otros grupos primarios,335
+3411,"Técnicos y profesionales del nivel medio del derecho, de servicios legales y afines",341
+3412,Trabajadores y asistentes sociales,341
+3413,Auxiliares laicos de las religiones,341
+3421,Atletas y deportistas,342
+3422,"Entrenadores, instructores y árbitros de actividades deportivas",342
+3423,Instructores de educación física y actividades recreativas,342
+3431,Fotógrafos,343
+3432,Diseñadores y decoradores de interiores,343
+3433,"Técnicos en galerías de arte, museos y bibliotecas",343
+3434,Chefs,343
+3435,Otros técnicos y profesionales del nivel medio en actividades culturales y artísticas,343
+3511,Técnicos en operaciones de tecnología de la información y las comunicaciones,351
+3512,Técnicos en asistencia y soporte al usuario de tecnología de la información y las comunicaciones,351
+3513,Técnicos en redes y sistemas de computación,351
+3514,Técnicos de la Web,351
+3521,Técnicos de radiodifusión y grabación audio visual,352
+3522,Técnicos de ingeniería de las telecomunicaciones,352
+4110,Oficinistas generales,411
+4120,Secretarios generales,412
+4131,Operadores de máquinas de procesamiento de texto y mecanógrafos,413
+4132,Grabadores de datos,413
+4211,Cajeros de bancos y afines,421
+4212,Receptores de apuestas y afines,421
+4213,Prestamistas,421
+4214,Cobradores y afines,421
+4221,Empleados y consultores de viajes,422
+4222,Empleados de centros de llamadas,422
+4223,Telefonistas,422
+4224,Recepcionistas de hoteles,422
+4225,Empleados de ventanillas de información,422
+4226,Recepcionistas generales,422
+4227,Entrevistadores de encuestas y de investigaciones de mercados,422
+4229,Otros empleados de servicios de información al cliente no clasificados en otros grupos primarios,422
+4311,Auxiliares de contabilidad y cálculo de costos,431
+4312,"Auxiliares de servicios estadísticos, financieros y de seguros",431
+4313,Auxiliares encargados de las nóminas,431
+4321,Empleados de control de abastecimientos e inventario,432
+4322,Empleados de servicios de apoyo a la producción,432
+4323,Empleados de servicios de transporte,432
+4411,Empleados de bibliotecas,441
+4412,Empleados de servicios de correos,441
+4413,"Codificadores de datos, correctores de pruebas de imprenta y afines",441
+4414,Escribientes públicos y afines,441
+4415,Empleados de archivos,441
+4416,Empleados del servicio de personal,441
+4419,Otro personal de apoyo administrativo no clasificados en otros grupos primarios,441
+5120,Cocineros,512
+5131,Meseros,513
+5132,Bármanes,513
+5141,Peluqueros,514
+5142,Especialistas en tratamientos de belleza y afines,514
+5151,"Supervisores  de mantenimiento y limpieza en oficinas, hoteles y otros establecimientos",515
+5152,Mayordomos domésticos,515
+5153,Conserjes y afines,515
+5161,"Astrólogos, adivinos y trabajadores afines",516
+5162,Acompañantes ,516
+5163,Personal de servicios funerarios y embalsamadores,516
+5164,Cuidadores de animales,516
+5165,Instructores de conducción,516
+5169,Otros trabajadores de servicios personales no clasificados en otros grupos primarios,516
+5211,Vendedores en quioscos y puestos de mercado,521
+5212,Vendedores ambulantes de alimentos preparados para consumo inmediato,521
+5221,Comerciantes de tiendas,522
+5222,Supervisores de tiendas y almacenes,522
+5223,"Vendedores y auxiliares de venta en tiendas, almacenes y afines",522
+5230,"Cajeros de comercio, taquilleros y expendedores de boletas",523
+5241,"Modelos de moda, arte y publicidad",524
+5242,"Demostradores de tiendas, almacenes y afines",524
+5243,Vendedores puerta a puerta ,524
+5244,Vendedores a través de medios tecnológicos,524
+5245,Expendedores de combustibles para vehículos,524
+5246,Vendedores de comidas en mostrador ,524
+5311,Cuidadores de niños,531
+5312,Auxiliares de maestros,531
+5321,Trabajadores de los cuidados personales en instituciones,532
+5322,Trabajadores de los cuidados personales a domicilio,532
+5329,Trabajadores de los cuidados personales en servicios de salud no clasificados en otros grupos primarios,532
+5411,Bomberos y rescatistas,541
+5412,Policías,541
+5413,Guardianes de prisión,541
+5414,Guardias de seguridad,541
+5419,Personal de los servicios de protección no clasificados en otros grupos primarios,541
+9111,Personal doméstico,911
+9112,"Aseadores de oficinas, hoteles y otros establecimientos",911
+9121,Lavanderos y planchadores manuales,912
+9122,Lavadores de vehículos,912
+9123,Limpiadores de ventanas,912
+9129,Otro personal de limpieza no clasificados en otros grupos primarios,912
+9211,Obreros y peones de explotaciones agrícolas,921
+9212,Obreros y peones de explotaciones ganaderas,921
+9213,Obreros y peones de explotaciones agropecuarias,921
+9214,Obreros y peones de jardinería y horticultura,921
+9215,Obreros y peones forestales,921
+9216,Obreros y peones de pesca y acuicultura,921
+9311,Obreros y peones de minas y canteras,931
+9312,Obreros y peones de obras públicas y mantenimiento,931
+9313,Obreros y peones de la construcción de edificios,931
+9321,Empacadores manuales,932
+9329,Obreros y peones de la industria manufacturera no clasificados en otros grupos primarios,932
+9331,Conductores de vehículos accionados a pedal o a brazo,933
+9332,Conductores de vehículos y maquinaria de tracción animal,933
+9333,Obreros y peones de carga,933
+9334,Surtidores de estanterías,933
+9411,Cocineros de comidas rápidas,941
+9412,Ayudantes de cocina,941
+9510,Trabajadores ambulantes de servicios y afines,951
+9520,Vendedores ambulantes (excluyendo comidas de preparación inmediata),952
+9611,Recolectores de basura y material reciclable,961
+9612,Clasificadores de desechos,961
+9613,Barrenderos y afines,961
+9621,"Mensajeros, mandaderos, maleteros y repartidores",962
+9622,Personas que realizan trabajos varios,962
+9623,Se desagrega en 9625 y 9626 por adaptación,962
+9624,Acarreadores de agua y recolectores de leña,962
+9625,Recolectores de dinero y surtidores de máquinas de venta automática,962
+9626,Lectores de medidores,962

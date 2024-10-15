@@ -1,0 +1,249 @@
+codigo,nombre
+AFG,Afganistán
+ALB,Albania
+DEU,Alemania
+AND,Andorra
+AGO,Angola
+AIA,Anguila
+ATA,Antártida
+ATG,Antigua y Barbuda
+SAU,Arabia Saudita
+DZA,Argelia
+ARG,Argentina
+ARM,Armenia
+ABW,Aruba
+AUS,Australia
+AUT,Austria
+AZE,Azerbaiyán
+BEL,Bélgica
+BHS,Bahamas
+BHR,Bahrein
+BGD,Bangladesh
+BRB,Barbados
+BLZ,Belice
+BEN,Benín
+BTN,Bhután
+BLR,Bielorrusia
+MMR,Birmania
+BOL,Bolivia
+BIH,Bosnia y Herzegovina
+BWA,Botsuana
+BRA,Brasil
+BRN,Brunéi
+BGR,Bulgaria
+BFA,Burkina Faso
+BDI,Burundi
+CPV,Cabo Verde
+KHM,Camboya
+CMR,Camerún
+CAN,Canadá
+TCD,Chad
+CHL,Chile
+CHN,China
+CYP,Chipre
+VAT,Ciudad del Vaticano
+COL,Colombia
+COM,Comoras
+COG,República del Congo
+COD,República Democrática del Congo
+PRK,Corea del Norte
+KOR,Corea del Sur
+CIV,Costa de Marfil
+CRI,Costa Rica
+HRV,Croacia
+CUB,Cuba
+CWU,Curazao
+DNK,Dinamarca
+DMA,Dominica
+ECU,Ecuador
+EGY,Egipto
+SLV,El Salvador
+ARE,Emiratos Árabes Unidos
+ERI,Eritrea
+SVK,Eslovaquia
+SVN,Eslovenia
+ESP,España
+USA,Estados Unidos de América
+EST,Estonia
+ETH,Etiopía
+PHL,Filipinas
+FIN,Finlandia
+FJI,Fiyi
+FRA,Francia
+GAB,Gabón
+GMB,Gambia
+GEO,Georgia
+GHA,Ghana
+GIB,Gibraltar
+GRD,Granada
+GRC,Grecia
+GRL,Groenlandia
+GLP,Guadalupe
+GUM,Guam
+GTM,Guatemala
+GUF,Guayana Francesa
+GGY,Guernsey
+GIN,Guinea
+GNQ,Guinea Ecuatorial
+GNB,Guinea-Bissau
+GUY,Guyana
+HTI,Haití
+HND,Honduras
+HKG,Hong kong
+HUN,Hungría
+IND,India
+IDN,Indonesia
+IRN,Irán
+IRQ,Irak
+IRL,Irlanda
+BVT,Isla Bouvet
+IMN,Isla de Man
+CXR,Isla de Navidad
+NFK,Isla Norfolk
+ISL,Islandia
+BMU,Islas Bermudas
+CYM,Islas Caimán
+CCK,Islas Cocos (Keeling)
+COK,Islas Cook
+ALA,Islas de Åland
+FRO,Islas Feroe
+SGS,Islas Georgias del Sur y Sandwich del Sur
+HMD,Islas Heard y McDonald
+MDV,Islas Maldivas
+FLK,Islas Malvinas
+MNP,Islas Marianas del Norte
+MHL,Islas Marshall
+PCN,Islas Pitcairn
+SLB,Islas Salomón
+TCA,Islas Turcas y Caicos
+UMI,Islas Ultramarinas Menores de Estados Unidos
+VGB,Islas Vírgenes Británicas
+VIR,Islas Vírgenes de los Estados Unidos
+ISR,Israel
+ITA,Italia
+JAM,Jamaica
+JPN,Japón
+JEY,Jersey
+JOR,Jordania
+KAZ,Kazajistán
+KEN,Kenia
+KGZ,Kirguistán
+KIR,Kiribati
+KWT,Kuwait
+LBN,Líbano
+LAO,Laos
+LSO,Lesoto
+LVA,Letonia
+LBR,Liberia
+LBY,Libia
+LIE,Liechtenstein
+LTU,Lituania
+LUX,Luxemburgo
+MEX,México
+MCO,Mónaco
+MAC,Macao
+MKD,Macedônia
+MDG,Madagascar
+MYS,Malasia
+MWI,Malawi
+MLI,Mali
+MLT,Malta
+MAR,Marruecos
+MTQ,Martinica
+MUS,Mauricio
+MRT,Mauritania
+MYT,Mayotte
+FSM,Micronesia
+MDA,Moldavia
+MNG,Mongolia
+MNE,Montenegro
+MSR,Montserrat
+MOZ,Mozambique
+NAM,Namibia
+NRU,Nauru
+NPL,Nepal
+NIC,Nicaragua
+NER,Niger
+NGA,Nigeria
+NIU,Niue
+NOR,Noruega
+NCL,Nueva Caledonia
+NZL,Nueva Zelanda
+OMN,Omán
+NLD,Países Bajos
+PAK,Pakistán
+PLW,Palau
+PSE,Palestina
+PAN,Panamá
+PNG,Papúa Nueva Guinea
+PRY,Paraguay
+PER,Perú
+PYF,Polinesia Francesa
+POL,Polonia
+PRT,Portugal
+PRI,Puerto Rico
+QAT,Qatar
+GBR,Reino Unido
+CAF,República Centroafricana
+CZE,República Checa
+DOM,República Dominicana
+SSD,República de Sudán del Sur
+REU,Reunión
+RWA,Ruanda
+ROU,Rumanía
+RUS,Rusia
+ESH,Sahara Occidental
+WSM,Samoa
+ASM,Samoa Americana
+BLM,San Bartolomé
+KNA,San Cristóbal y Nieves
+SMR,San Marino
+MAF,San Martín (Francia)
+SPM,San Pedro y Miquelón
+VCT,San Vicente y las Granadinas
+SHN,Santa Elena
+LCA,Santa Lucía
+STP,Santo Tomé y Príncipe
+SEN,Senegal
+SRB,Serbia
+SYC,Seychelles
+SLE,Sierra Leona
+SGP,Singapur
+SMX,Sint Maarten
+SYR,Siria
+SOM,Somalia
+LKA,Sri lanka
+ZAF,Sudáfrica
+SDN,Sudán
+SWE,Suecia
+CHE,Suiza
+SUR,Surinám
+SJM,Svalbard y Jan Mayen
+SWZ,Swazilandia
+TJK,Tayikistán
+THA,Tailandia
+TWN,Taiwán
+TZA,Tanzania
+IOT,Territorio Británico del Océano Índico
+ATF,Territorios Australes y Antárticas Franceses
+TLS,Timor Oriental
+TGO,Togo
+TKL,Tokelau
+TON,Tonga
+TTO,Trinidad y Tobago
+TUN,Tunez
+TKM,Turkmenistán
+TUR,Turquía
+TUV,Tuvalu
+UKR,Ucrania
+UGA,Uganda
+URY,Uruguay
+UZB,Uzbekistán
+VUT,Vanuatu
+VEN,Venezuela
+VNM,Vietnam
+WLF,Wallis y Futuna
+YEM,Yemen
+DJI,Yibuti
+ZMB,Zambia
+ZWE,Zimbabue
