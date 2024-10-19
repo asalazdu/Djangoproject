@@ -117,6 +117,7 @@ class PacienteDiscapacidad(models.Model):
     class Meta:
         db_table = 'PacienteDiscapacidad'
         unique_together = ('paciente', 'discapacidad')
+    
 
 
 class PacienteDiagnostico(models.Model):
