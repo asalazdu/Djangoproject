@@ -258,3 +258,24 @@ tbody tr:hover {
   background-color: #3dd399;  
   color: #fefefe;
 }
+
+
+.toggle-header {
+  cursor: pointer;
+  background-color: #f8f9fa; /* Color de fondo */
+  padding: 10px;
+  border: 1px solid #ddd; /* Borde alrededor del encabezado */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+.toggle-header:hover {
+  background-color: #e9ecef; /* Color de fondo en hover */
+}
+
+.toggle-content {
+  padding: 10px;
+  border: 1px solid #ddd; /* Borde alrededor del contenido */
+  border-radius: 5px; /* Bordes redondeados */
+  margin-top: 10px; /* Espacio superior */
+}
