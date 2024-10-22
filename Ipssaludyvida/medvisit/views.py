@@ -1,12 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib import messages
-
-from .forms import PacienteForm,ServicioSaludForm, PacienteDiscapacidadForm
-
-from .forms import PacienteForm
+from .forms import PacienteForm, ServicioSaludForm
 from django.utils import timezone
-
 
 
 
@@ -64,18 +60,6 @@ def editarPaciente(request, id):
     # Obtener el paciente
     paciente = get_object_or_404(Paciente, Id=id)
 
-    formPaciente = PacienteForm(instance=paciente)
-
-    # Cargar discapacidades existentes
-    discapacidades_existentes = PacienteDiscapacidad.objects.filter(paciente=paciente)
-
-    # Cargar todas las discapacidades disponibles
-    all_disabilities = Discapacidad.objects.all()
-
-    if request.method == 'POST':
-        # Actualizar datos del paciente
-
-
     # Obtener las nacionalidades asociadas al paciente
     nacionalidades_asociadas = PacienteNacionalidad.objects.filter(paciente=paciente)
 
@@ -122,9 +106,7 @@ def editarPaciente(request, id):
             return redirect('editarPaciente', id=paciente.Id)
 
         # Si se trata de guardar cambios en el formulario del paciente
-
         formPaciente = PacienteForm(request.POST, instance=paciente)
-
         if formPaciente.is_valid():
             formPaciente.save()
             voluntad_anticipada.voluntad = request.POST.get('voluntad')
@@ -137,44 +119,7 @@ def editarPaciente(request, id):
             oposicion.save()
 
             messages.success(request, 'Paciente actualizado con éxito.')
-
-
-        # Manejar nuevas discapacidades
-        if 'agregar_discapacidad' in request.POST:
-            discapacidad_id = request.POST.get('discapacidad_id')
-            discapacidad = get_object_or_404(Discapacidad, codigo=discapacidad_id)
-            
-            # Verificar si la discapacidad ya está registrada
-            if not discapacidades_existentes.filter(discapacidad=discapacidad).exists():
-                discapacidad_nueva = PacienteDiscapacidad(paciente=paciente, discapacidad=discapacidad)
-                discapacidad_nueva.save()
-                messages.success(request, 'Discapacidad agregada con éxito.')
-            else:
-                messages.warning(request, 'La discapacidad ya está registrada para este paciente.')
-
-            return redirect('editarPaciente', id=paciente.id)  # Redirigir para evitar el reenvío de formulario
-
-        
-
-
-
-
-def CrearServicioSalud(request):
-    formServicio = ServicioSaludForm()
-
-    if request.method == 'POST':
-        formServicio = ServicioSaludForm(request.POST)
-        if formServicio.is_valid():
-            formServicio.save()
-            messages.success(request,'servicio de salud registrado correctamente.')
-            return redirect('/')
-        else:
-            messages.error(request,'Porfavor corrige los errores del formulario.')
-
-    return render(request,'public/Serviciosalud/crear_servicio_salud.html',{'formServicio':formServicio})
-
-
-    return redirect('/') 
+            return redirect('/') 
 
     else:
         formPaciente = PacienteForm(instance=paciente)
@@ -194,4 +139,16 @@ def CrearServicioSalud(request):
 
     return render(request, "public/pacientes/editar_paciente.html", contexto)
 
+def CrearServicioSalud(request):
+    formServicio = ServicioSaludForm()
 
+    if request.method == 'POST':
+        formServicio = ServicioSaludForm(request.POST)
+        if formServicio.is_valid():
+            formServicio.save()
+            messages.success(request,'servicio de salud registrado correctamente.')
+            return redirect('/')
+        else:
+            messages.error(request,'Porfavor corrige los errores del formulario.')
+
+    return render(request,'public/Serviciosalud/crear_servicio_salud.html',{'formServicio':formServicio})
