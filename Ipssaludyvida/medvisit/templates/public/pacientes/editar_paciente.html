@@ -72,6 +72,23 @@
                                 <div class="mb-3">
                                     {{ FormPaciente.CodigoEntidad|as_crispy_field }}
                                 </div>
+                                <h3>Discapacidades actuales:</h3>
+                                <ul>
+                                    {% for discapacidad in discapacidades_existentes %}
+                                        <li>
+                                            {{ discapacidad.discapacidad }} 
+                                            <button type="submit" name="eliminar_discapacidad" value="{{ discapacidad.id }}" class="btn btn-danger btn-sm">Eliminar</button>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+    
+                                <h3>Agregar nueva discapacidad:</h3>
+                                <select name="discapacidad_id" class="form-select mb-2">
+                                    {% for discapacidad in all_disabilities %}
+                                        <option value="{{ discapacidad.discapacidad_id}}">{{ discapacidad.nombre }}</option>
+                                    {% endfor %}
+                                </select>
+                                <button type="submit" name="agregar_discapacidad" class="btn btn-primary">Agregar Discapacidad</button>
                             </div>
                         </div>
 

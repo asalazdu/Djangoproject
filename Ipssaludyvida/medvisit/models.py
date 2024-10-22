@@ -33,6 +33,9 @@ class Discapacidad(models.Model):
 
     class Meta:
         db_table = 'Discapacidad'
+    
+    def __str__(self):
+        return self.nombre
 
 
 class Entidad(models.Model):
