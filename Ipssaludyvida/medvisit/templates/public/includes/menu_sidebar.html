@@ -32,11 +32,18 @@
     </li>
     
     <li class="menu-item">
-      <a href="" class="menu-link">
+      <a href="{% url 'crearAtencion' %}" class="menu-link">
         <i class="menu-icon bi bi-file-earmark-spreadsheet-fill"></i>
         <div data-i18n="Tables">Registrar atención</div>
       </a>
     </li>
+    <li class="menu-item">
+      <a href="{% url 'listarAtenciones' %}" class="menu-link">
+        <i class="menu-icon bi-list-check"></i>
+        <div data-i18n="Boxicons">Lista de atenciones</div>
+      </a>
+    </li>
+
     <li class="menu-item">
       <a href="" class="menu-link">
         <i class="menu-icon bi bi-person-lines-fill"></i>

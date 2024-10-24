@@ -68,3 +68,51 @@ class PacienteForm(forms.ModelForm):
             raise forms.ValidationError("Ya existe un paciente con este número de documento y tipo de documento.")
 
         return Identificacion
+    
+
+
+class ServicioSaludForm(forms.ModelForm):
+    class Meta:
+        model = ServicioSalud
+        fields = [
+            'IdPaciente', 
+            'CodigoPrestadoServicio', 
+            'FechaHoraAtencion', 
+            'CodigoModalidadRealizacion',
+            'CodigoGrupoServicio', 
+            'CodigoEntorno', 
+            'CodigoViaIngreso', 
+            'CodigoCausaMotivo',
+            'ClasificacionTriage', 
+            'CodigoDiagnostico', 
+            'TipoDiagnosticoPrincipal'
+        ]
+        widgets = {
+            'FechaHoraAtencion': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
+        labels = {
+            'IdPaciente': 'Paciente',
+            'CodigoPrestadoServicio': 'Codigo Prestador',
+            'FechaHoraAtencion': 'Fecha y Hora de Atención',
+            'CodigoModalidadRealizacion': 'Modalidad de Atención',
+            'CodigoGrupoServicio': 'Grupo de Servicios',
+            'CodigoEntorno': 'Entorno',
+            'CodigoViaIngreso': 'Via de Ingreso',
+            'CodigoCausaMotivo': 'Causa de la Atención',
+            'ClasificacionTriage': 'Triage',
+            'CodigoDiagnostico': 'Diagnóstico',
+            'TipoDiagnosticoPrincipal': 'Tipo de Diagnóstico',
+        }
+
+
+    def __init__(self, *args, **kwargs):
+        super(ServicioSaludForm, self).__init__(*args, **kwargs)
+        self.fields['IdPaciente'].empty_label = None
+        self.fields['CodigoModalidadRealizacion'].empty_label = None
+        self.fields['CodigoViaIngreso'].empty_label = None
+        self.fields['CodigoCausaMotivo'].empty_label = None
+        self.fields['CodigoDiagnostico'].empty_label = None
+        self.fields['CodigoGrupoServicio'].choices = [(c[0], c[1]) for c in self.fields['CodigoGrupoServicio'].choices if c[0]]
+        self.fields['CodigoEntorno'].choices = [(c[0], c[1]) for c in self.fields['CodigoEntorno'].choices if c[0]]
+        self.fields['ClasificacionTriage'].choices = [(c[0], c[1]) for c in self.fields['ClasificacionTriage'].choices if c[0]]
+        self.fields['TipoDiagnosticoPrincipal'].choices = [(c[0], c[1]) for c in self.fields['TipoDiagnosticoPrincipal'].choices if c[0]]

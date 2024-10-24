@@ -97,6 +97,40 @@
             <p class="fs-6">{{ paciente.CodigoEntidad.nombre }}</p>
           </div>
 
+          <div class="col-md-6 mb-3 text-center">
+            <label for="voluntad_donacion" class="form-label fs-5">Voluntad de donación anticipada</label>
+            <p class="fs-6">{{ voluntad_anticipada.voluntad|yesno:"Sí,No" }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="oposicion" class="form-label fs-5">Oposición a la presunción legal de donación</label>
+            <p class="fs-6">{{ oposicion.manifestacion|yesno:"Sí,No" }}</p>
+          </div>
+
+          <div class="col-md-12 mb-3 text-center">
+            <label for="nacionalidades" class="form-label fs-5">Nacionalidades</label>
+            <ul class="list-group">
+              {% for nacionalidad in nacionalidades_asociadas %}
+                <li class="list-group-item">{{ nacionalidad.pais.nombre }}</li>
+              {% empty %}
+                <li class="list-group-item">No tiene nacionalidades registradas.</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-md-12 mb-3 text-center">
+            <label for="discapacidades" class="form-label fs-5">Discapacidades</label>
+            <ul class="list-group">
+              {% for discapacidad in discapacidades_asociadas %}
+                <li class="list-group-item">{{ discapacidad.discapacidad.nombre }}</li>
+              {% empty %}
+                <li class="list-group-item">No tiene discapacidades registradas.</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          
+
         </div>
       </div>
     </div>

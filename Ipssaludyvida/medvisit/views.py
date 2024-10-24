@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib import messages
-from .forms import PacienteForm
+from .forms import PacienteForm, ServicioSaludForm
 from django.utils import timezone
 
 
@@ -22,6 +22,14 @@ def listarPacientes(request):
     
     return render(request, "public/pacientes/lista_pacientes.html", contexto)
 
+
+def listarAtenciones(request):
+    atenciones = ServicioSalud.objects.all()
+    contexto = {
+            'atenciones': atenciones,
+        }
+    
+    return render(request, "public/servicioSalud/lista_atenciones.html", contexto)
 
 
 def crearPaciente(request):
@@ -45,16 +53,57 @@ def crearPaciente(request):
     return render(request, 'public/pacientes/crear_pacientes.html', {'FormPaciente': formPaciente})
 
 
+
+def crearAtencion(request):
+    formAtencion = ServicioSaludForm()
+    
+    if request.method == 'POST':
+        formAtencion = ServicioSaludForm(data=request.POST)
+        if formAtencion.is_valid():
+            nueva_atencion =  formAtencion.save()
+            messages.success(request, 'Atención registrada con éxito.')
+            return redirect('/listarAtenciones')
+        else:
+            messages.error(request, 'Por favor corrige los errores del formulario.')
+
+
+    return render(request, 'public/servicioSalud/crear_atencion.html', {'FormAtencion': formAtencion})
+
+
 def eliminarPaciente(request, id):
     paciente = Paciente.objects.get(Id=id)
     paciente.delete()
     messages.success(request, 'Paciente eliminado con éxito')
     return redirect('/')
 
+
+def eliminarAtencion(request, id):
+    atencion = ServicioSalud.objects.get(Id=id)
+    atencion.delete()
+    messages.success(request, 'Atención eliminada con éxito')
+    return redirect('/listarAtenciones')
+
 def detallePaciente(request, id):
     paciente = Paciente.objects.get(Id=id)
-    contexto = {'paciente': paciente}
+    nacionalidades_asociadas = PacienteNacionalidad.objects.filter(paciente=paciente)
+    discapacidades_asociadas = PacienteDiscapacidad.objects.filter(paciente=paciente)
+    voluntad_anticipada = VoluntadAnticipada.objects.filter(paciente=paciente).first()
+    oposicion = Oposicion.objects.filter(paciente=paciente).first()
+    contexto = {'paciente': paciente,
+                'discapacidades_asociadas': discapacidades_asociadas,
+                'nacionalidades_asociadas': nacionalidades_asociadas,
+                'voluntad_anticipada': voluntad_anticipada,
+                'oposicion': oposicion,
+                }
     return render(request, "public/pacientes/detalle_paciente.html", contexto)
+
+
+def detalleAtencion(request, id):
+    atencion = ServicioSalud.objects.get(Id=id)
+    contexto = {'atencion': atencion,
+                }
+    return render(request, "public/servicioSalud/detalle_atencion.html", contexto)
+
 
 def editarPaciente(request, id):
     # Obtener el paciente
@@ -135,7 +184,30 @@ def editarPaciente(request, id):
         'paises_disponibles': paises_disponibles,
     }
 
-    print(discapacidades_asociadas)
-
     return render(request, "public/pacientes/editar_paciente.html", contexto)
+
+
+
+def editarAtencion(request, id):
+    # Obtener atencion
+    atencion = get_object_or_404(ServicioSalud, Id=id)
+
+    if request.method == 'POST':
+
+        # Si se trata de guardar cambios en el formulario del paciente
+        formAtencion = ServicioSaludForm(request.POST, instance=atencion)
+        if formAtencion.is_valid():
+            formAtencion.save()
+            messages.success(request, 'Atención actualizada con éxito.')
+            return redirect('/listarAtenciones') 
+
+    else:
+        formAtencion = ServicioSaludForm(instance=atencion)
+
+    contexto = {
+        'FormAtencion': formAtencion,
+        'atencion': atencion,
+    }
+
+    return render(request, "public/servicioSalud/editar_atencion.html", contexto)
 

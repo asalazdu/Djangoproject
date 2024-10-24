@@ -1,0 +1,75 @@
+{% extends "public/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+<div class="card" style="border-radius: 0px !important">
+    <div class="row justify-content-center mb-2">
+        <div class="col-md-12 mb-4">
+            <h3 class="text-center mt-5 mb-3">
+                <a href="{% url 'listarPacientes' %}" class="text-decoration-none">
+                    <i class="bi bi-arrow-left-circle"></i>
+                  </a>
+                EDITAR ATENCIÓN</h3>
+            <hr />
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <!-- Primera columna -->
+                            <div class="col-md-6" style="padding: 10px;">
+                                <div class="mb-3">
+                                    {{ FormAtencion.IdPaciente|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.CodigoPrestadoServicio|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.FechaHoraAtencion|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.CodigoModalidadRealizacion|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.CodigoGrupoServicio|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.CodigoEntorno|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <!-- Segunda columna -->
+                            <div class="col-md-6" style="padding: 10px;">
+                                <div class="mb-3">
+                                    {{ FormAtencion.CodigoViaIngreso|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.CodigoCausaMotivo|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.ClasificacionTriage|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.CodigoDiagnostico|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormAtencion.TipoDiagnosticoPrincipal|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Botón de guardar -->
+                        <div class="form-group mt-3 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'assets/js/editar_paciente.js' %}"></script>
+{% endblock %}

@@ -7,6 +7,9 @@ class CausaMotivo(models.Model):
     class Meta:
         db_table = 'CausaMotivo'
 
+    def __str__(self):
+        return self.nombre
+
 
 class Departamento(models.Model):
     codigo = models.CharField(max_length=5, primary_key=True)
@@ -24,6 +27,9 @@ class Diagnostico(models.Model):
 
     class Meta:
         db_table = 'Diagnostico'
+
+    def __str__(self):
+        return self.nombre
 
 
 class Discapacidad(models.Model):
@@ -74,6 +80,9 @@ class ModalidadRealizacion(models.Model):
     class Meta:
         db_table = 'ModalidadRealizacion'
 
+    def __str__(self):
+        return self.nombre
+
 
 class Municipio(models.Model):
     codigo = models.CharField(max_length=5, primary_key=True)
@@ -117,16 +126,6 @@ class PacienteDiscapacidad(models.Model):
     class Meta:
         db_table = 'PacienteDiscapacidad'
         unique_together = ('paciente', 'discapacidad')
-    
-
-
-class PacienteDiagnostico(models.Model):
-    paciente = models.ForeignKey('Paciente', on_delete=models.CASCADE)
-    diagnostico = models.ForeignKey(Diagnostico, on_delete=models.CASCADE)
-
-    class Meta:
-        db_table = 'PacienteDiagnostico'
-        unique_together = ('paciente', 'diagnostico')
 
 
 class PacienteNacionalidad(models.Model):
@@ -178,6 +177,9 @@ class ViaIngreso(models.Model):
     class Meta:
         db_table = 'ViaIngreso'
 
+    def __str__(self):
+        return self.nombre
+
 
 class VoluntadAnticipada(models.Model):
     id = models.AutoField(primary_key=True)
@@ -222,6 +224,13 @@ class Paciente(models.Model):
 
     class Meta:
         db_table = 'Paciente'
+
+    def __str__(self):
+        # Combinar identificación y nombre completo del paciente
+        nombres = f"{self.PrimerNombre} {self.SegundoNombre}" if self.SegundoNombre else self.PrimerNombre
+        apellidos = f"{self.PrimerApellido} {self.SegundoApellido}" if self.SegundoApellido else self.PrimerApellido
+        nombre_completo = f"{nombres} {apellidos}"
+        return f"{nombre_completo}"
 
 
 class ServicioSalud(models.Model):
