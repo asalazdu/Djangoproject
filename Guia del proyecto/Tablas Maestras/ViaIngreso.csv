@@ -1,0 +1,15 @@
+codigo;nombre
+1;Demanda espontánea
+2;Derivado de consulta externa
+3;Derivado de urgencias
+4;Derivado de hospitalización
+5;Derivado de sala de cirugía
+6;Derivado de sala de partos
+7;Recién nacido en la institución
+8;Recién nacido en otra institución
+9;Derivado o referido de hospitalización domiciliaria
+10;Derivado de atención domiciliario
+11;Derivado de telemedicina
+12;Derivado de jordana de salud
+13;Referido de otra institución
+14;Contra referido de otra institución

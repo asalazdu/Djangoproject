@@ -1,0 +1,30 @@
+codigo;nombre
+21;Accidente de trabajo
+22;Accidente en el hogar
+23;Accidente de tránsito de origen común
+24;Accidente de tránsito de origen laboral
+25;Accidente en el entorno educativo
+26;Otro tipo de accidente
+27;Evento catastrófico de origen natural
+28;Lesión por agresión
+29;Lesión auto infligida
+30;Sospecha de violencia física
+31;Sospecha de violencia psicológica
+32;Sospecha de violencia sexual
+33;Sospecha de negligencia y abandono
+34;IVE relacionado con peligro a la salud o vida de la mujer
+35;IVE por malformación congénita incompatible con la vida
+36;IVE por violencia sexual, incesto o por inseminación artificial o transferencia de óvulo fecundado no consentida
+37;Evento adverso en salud
+38;Enfermedad general
+39;Enfermedad laboral
+40;Promoción y mantenimiento de la salud - Intervenciones individuales
+41;Intervención colectiva
+42;Atención de población materno perinatal
+43;Seguridad y Salud en el Trabajo
+44;Otros eventos catastróficos
+45;Accidente de mina antipersonal - MAP
+46;Accidente de Artefacto Explosivo Improvisado - AEI
+47;Accidente de Munición Sin Explotar - MUSE
+48;Otra victima de conflicto armado colombiano
+49;Riesgo ambiental
