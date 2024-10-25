@@ -41,7 +41,7 @@
               <th>Id Atención</th>
               <th>Paciente</th>
               <th>Fecha de atención</th>
-              <th>Via Ingreso</th>
+              <th>Diagnostico</th>
               <th>Clasificacion Triage</th>
               <th>Acción</th>
             </tr>
@@ -52,7 +52,7 @@
                 <td>{{ p.Id}}</td>
                 <td>{{ p.IdPaciente }}</td>
                 <td>{{ p.FechaHoraAtencion }}</td>
-                <td>{{ p.CodigoViaIngreso }}</td>
+                <td>{{ p.CodigoDiagnostico }}</td>
                 <td>{{ p.get_ClasificacionTriage_display }}</td>
                 <td>
                   <a href="detalleAtencion/{{ p.Id }}" class="btn btn-detalle btnDetalle">Ver</a>
