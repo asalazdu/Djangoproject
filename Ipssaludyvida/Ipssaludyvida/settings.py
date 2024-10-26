@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "medvisit",
     "crispy_forms",
     "crispy_bootstrap5",
-    'dbbackup',
 ]
 
 
@@ -48,12 +47,6 @@ INSTALLED_APPS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-
-
-DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {
-    'location': r'C:\Users\jblan\Documents\Proyectos desarrollo\Tendencias en desarrolo de software\Djangoproject\backups',  # Asegúrate de que esta ruta sea correcta
-}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -93,16 +86,16 @@ WSGI_APPLICATION = "Ipssaludyvida.wsgi.application"
 
 
 #BASE DE DATOS SQLITE
-'''
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+
 '''
-
-
 #BASE DE DATOS MYSQL
 
 DATABASES = {
@@ -115,7 +108,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

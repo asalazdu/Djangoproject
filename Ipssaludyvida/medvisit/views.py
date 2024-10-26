@@ -200,7 +200,6 @@ def editarAtencion(request, id):
             formAtencion.save()
             messages.success(request, 'Atención actualizada con éxito.')
             return redirect('/listarAtenciones') 
-
     else:
         formAtencion = ServicioSaludForm(instance=atencion)
 
