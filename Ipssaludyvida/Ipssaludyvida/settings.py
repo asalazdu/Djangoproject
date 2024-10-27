@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "admin_interface",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -40,8 +41,10 @@ INSTALLED_APPS = [
     "medvisit",
     "crispy_forms",
     "crispy_bootstrap5",
+    "colorfield",
 ]
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 #Configuración crispy froms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
