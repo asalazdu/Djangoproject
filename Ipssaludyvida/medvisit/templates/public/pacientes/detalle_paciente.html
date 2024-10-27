@@ -1,0 +1,140 @@
+{% extends 'public/base.html' %}
+
+{% block title %} Detalle del paciente {% endblock %}
+{% load static %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{% static 'assets/css/file.css' %}" />
+{% endblock %}
+
+{% block body %}
+
+<div class="card border-0 shadow-sm" style="border-radius: 0px !important">
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12">
+      <h3 class="text-center mt-5 mb-4">
+        <a href="{% url 'listarPacientes' %}" class="text-decoration-none">
+          <i class="bi bi-arrow-left-circle"></i>
+        </a>
+        INFORMACIÓN DEL PACIENTE
+      </h3>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10">
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="nombre_paciente" class="form-label fs-5">Nombre del paciente</label>
+            <p class="fs-6">{{ paciente.PrimerNombre }} {{ paciente.SegundoNombre|default:"" }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="apellido_paciente" class="form-label fs-5">Apellido del paciente</label>
+            <p class="fs-6">{{ paciente.PrimerApellido }} {{ paciente.SegundoApellido|default:"" }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="tipo_documento" class="form-label fs-5">Tipo de documento</label>
+            <p class="fs-6">{{ paciente.CodigoTipoDocumento.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="identificacion" class="form-label fs-5">Identificación</label>
+            <p class="fs-6">{{ paciente.Identificacion }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="fecha_nacimiento" class="form-label fs-5">Fecha de nacimiento</label>
+            <p class="fs-6">{{ paciente.FechaNacimiento }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="hora_nacimiento" class="form-label fs-5">Hora de nacimiento</label>
+            <p class="fs-6">{{ paciente.HoraNacimiento }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="sexo" class="form-label fs-5">Sexo</label>
+            <p class="fs-6">{{ paciente.CodigoSexo.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="genero" class="form-label fs-5">Género</label>
+            <p class="fs-6">{{ paciente.CodigoGenero.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="ocupacion" class="form-label fs-5">Ocupación</label>
+            <p class="fs-6">{{ paciente.CodigoOcupacion.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="pais_residencia" class="form-label fs-5">País de residencia</label>
+            <p class="fs-6">{{ paciente.CodigoPaisResidencia.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="municipio" class="form-label fs-5">Municipio</label>
+            <p class="fs-6">{{ paciente.CodigoMunicipio.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="etnia" class="form-label fs-5">Etnia</label>
+            <p class="fs-6">{{ paciente.CodigoEtnia.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="zona_residencial" class="form-label fs-5">Zona Residencial</label>
+            <p class="fs-6">{{ paciente.CodigoZonaResidencial.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="entidad" class="form-label fs-5">Entidad</label>
+            <p class="fs-6">{{ paciente.CodigoEntidad.nombre }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="voluntad_donacion" class="form-label fs-5">Voluntad de donación anticipada</label>
+            <p class="fs-6">{{ voluntad_anticipada.voluntad|yesno:"Sí,No" }}</p>
+          </div>
+
+          <div class="col-md-6 mb-3 text-center">
+            <label for="oposicion" class="form-label fs-5">Oposición a la presunción legal de donación</label>
+            <p class="fs-6">{{ oposicion.manifestacion|yesno:"Sí,No" }}</p>
+          </div>
+
+          <div class="col-md-12 mb-3 text-center">
+            <label for="nacionalidades" class="form-label fs-5">Nacionalidades</label>
+            <ul class="list-group">
+              {% for nacionalidad in nacionalidades_asociadas %}
+                <li class="list-group-item">{{ nacionalidad.pais.nombre }}</li>
+              {% empty %}
+                <li class="list-group-item">No tiene nacionalidades registradas.</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-md-12 mb-3 text-center">
+            <label for="discapacidades" class="form-label fs-5">Discapacidades</label>
+            <ul class="list-group">
+              {% for discapacidad in discapacidades_asociadas %}
+                <li class="list-group-item">{{ discapacidad.discapacidad.nombre }}</li>
+              {% empty %}
+                <li class="list-group-item">No tiene discapacidades registradas.</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

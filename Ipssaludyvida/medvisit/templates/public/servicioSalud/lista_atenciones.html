@@ -1,0 +1,72 @@
+{% extends 'public/base.html' %}
+{% block title %}Lista de Atenciones{% endblock %}
+{% block body %}
+
+{% if messages %}
+    <div id="message-container">
+        {% for message in messages %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<div class="card" style="border-radius: 0px !important">
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12 mb-4">
+      <h3 class="text-center mt-5 mb-3">LISTA DE ATENCIONES</h3>
+      <hr />
+    </div>
+
+    <div class="row justify-content-end">
+      <div class="col-md-6 mt-4 py-2">
+        <input
+          type="search"
+          id="search"
+          class="form-control border-0 shadow-none"
+          placeholder="Buscar atención..."
+          onkeyup="buscadorTable('tbl_atenciones')" />
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-2">
+      <div class="table-responsive text-nowrap table-hover">
+        <table
+          table-hover
+          id="tbl_atenciones"
+          class="table table-striped table-bordered"
+          cellspacing="0"
+          width="100%">
+          <thead>
+            <tr>
+              <th>Id Atención</th>
+              <th>Paciente</th>
+              <th>Fecha de atención</th>
+              <th>Diagnostico</th>
+              <th>Clasificacion Triage</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in atenciones %}
+            <tr>
+                <td>{{ p.Id}}</td>
+                <td>{{ p.IdPaciente }}</td>
+                <td>{{ p.FechaHoraAtencion }}</td>
+                <td>{{ p.CodigoDiagnostico }}</td>
+                <td>{{ p.get_ClasificacionTriage_display }}</td>
+                <td>
+                  <a href="detalleAtencion/{{ p.Id }}" class="btn btn-detalle btnDetalle">Ver</a>
+                  <a href="editarAtencion/{{ p.Id }}" class="btn btn-info">Editar</a>
+                <a href="eliminarAtencion/{{ p.Id }}" class="btn btn-danger btnEliminacion">Eliminar</a></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

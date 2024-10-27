@@ -1,0 +1,14 @@
+codigo;nombre
+CC;Cédula de ciudadanía
+CE;Cédula de extranjería
+CD;Carné diplomático
+PA;Pasaporte
+SC;Salvoconducto de permanencia
+PE;Permiso Temporal de Permanencia
+RC;Registro civil
+TI;Tarjeta de identidad
+CN;Certificado de nacido vivo
+AS;Adulto sin identificar
+MS;Menor sin identificar
+DE;Documento extranjero
+SI;Sin identificación

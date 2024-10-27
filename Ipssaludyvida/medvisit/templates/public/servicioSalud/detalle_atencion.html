@@ -1,0 +1,94 @@
+{% extends 'public/base.html' %}
+
+{% block title %} Detalle de la atención {% endblock %}
+{% load static %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{% static 'assets/css/file.css' %}" />
+{% endblock %}
+
+{% block body %}
+
+<div class="card border-0 shadow-sm" style="border-radius: 0px !important">
+  <div class="row justify-content-center mb-2">
+    <div class="col-md-12">
+      <h3 class="text-center mt-5 mb-4">
+        <a href="{% url 'listarAtenciones' %}" class="text-decoration-none">
+          <i class="bi bi-arrow-left-circle"></i>
+        </a>
+        INFORMACIÓN DE LA ATENCIÓN
+      </h3>
+      <hr />
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-10">
+      <div class="card-body">
+        <form method="POST" action="">
+          {% csrf_token %}
+          {{ FormAtencion.as_p }}
+
+          <div class="row">
+            <div class="col-md-6 mb-3 text-center">
+              <label for="IdPaciente" class="form-label fs-5">Paciente</label>
+              <p class="fs-6">{{ atencion.IdPaciente }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="CodigoPrestadoServicio" class="form-label fs-5">Código Prestador</label>
+              <p class="fs-6">{{ atencion.CodigoPrestadoServicio }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="FechaHoraAtencion" class="form-label fs-5">Fecha y Hora de Atención</label>
+              <p class="fs-6">{{ atencion.FechaHoraAtencion }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="CodigoModalidadRealizacion" class="form-label fs-5">Modalidad de Atención</label>
+              <p class="fs-6">{{ atencion.CodigoModalidadRealizacion }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="CodigoGrupoServicio" class="form-label fs-5">Grupo de Servicios</label>
+              <p class="fs-6">{{ atencion.get_CodigoGrupoServicio_display }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="CodigoEntorno" class="form-label fs-5">Entorno</label>
+              <p class="fs-6">{{ atencion.get_CodigoEntorno_display }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="CodigoViaIngreso" class="form-label fs-5">Vía de Ingreso</label>
+              <p class="fs-6">{{ atencion.CodigoViaIngreso }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="CodigoCausaMotivo" class="form-label fs-5">Causa de la Atención</label>
+              <p class="fs-6">{{ atencion.CodigoCausaMotivo }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="ClasificacionTriage" class="form-label fs-5">Clasificación Triage</label>
+              <p class="fs-6">{{ atencion.get_ClasificacionTriage_display }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="CodigoDiagnostico" class="form-label fs-5">Diagnóstico</label>
+              <p class="fs-6">{{ atencion.CodigoDiagnostico }}</p>
+            </div>
+
+            <div class="col-md-6 mb-3 text-center">
+              <label for="TipoDiagnosticoPrincipal" class="form-label fs-5">Tipo de Diagnóstico</label>
+              <p class="fs-6">{{ atencion.get_TipoDiagnosticoPrincipal_display }}</p>
+            </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

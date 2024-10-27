@@ -1,0 +1,178 @@
+{% extends "public/base.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+<div class="card" style="border-radius: 0px !important">
+    <div class="row justify-content-center mb-2">
+        <div class="col-md-12 mb-4">
+            <h3 class="text-center mt-5 mb-3">
+                <a href="{% url 'listarPacientes' %}" class="text-decoration-none">
+                    <i class="bi bi-arrow-left-circle"></i>
+                  </a>
+                EDITAR PACIENTE</h3>
+            <hr />
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <!-- Primera columna -->
+                            <div class="col-md-6" style="padding: 10px;">
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoTipoDocumento|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.Identificacion|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.PrimerApellido|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.SegundoApellido|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.PrimerNombre|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.SegundoNombre|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.FechaNacimiento|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.HoraNacimiento|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <!-- Segunda columna -->
+                            <div class="col-md-6" style="padding: 10px;">
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoSexo|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoGenero|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoOcupacion|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoPaisResidencia|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoMunicipio|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoEtnia|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoZonaResidencial|as_crispy_field }}
+                                </div>
+                                <div class="mb-3">
+                                    {{ FormPaciente.CodigoEntidad|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <h5>Nacionalidades asociadas</h5>
+                            <ul class="list-group">
+                                {% for nacionalidad in nacionalidades_asociadas %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{ nacionalidad.pais.nombre }}
+                                        <button type="submit" name="eliminar_nacionalidad" value="{{ nacionalidad.pais.codigo }}" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </li>
+                                {% empty %}
+                                    <li class="list-group-item">No hay nacionalidades asociadas.</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h5>Agregar nacionalidad</h5>
+                            <div class="form-group">
+                                <label for="nacionalidad_pais">Seleccione un país</label>
+                                <select name="nacionalidad_pais" class="form-control" id="nacionalidad_pais">
+                                    {% for pais in paises_disponibles %}
+                                        <option value="{{ pais.codigo }}">{{ pais.nombre }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button type="submit" name="agregar_nacionalidad" class="btn btn-success mt-2">Agregar nacionalidad</button>
+                        </div>
+                        <br>
+                        
+                        <div class="mt-3">
+                            <h5>Discapacidades asociadas</h5>
+                            <ul class="list-group">
+                                {% for discapacidad in discapacidades_asociadas %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{ discapacidad.discapacidad.nombre }}
+                                        <button type="submit" name="eliminar_discapacidad" value="{{ discapacidad.discapacidad.codigo }}" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </li>
+                                {% empty %}
+                                    <li class="list-group-item">No hay discapacidades asociadas.</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h5>Agregar discapacidad</h5>
+                            <div class="form-group">
+                                <label for="paciente_discapacidad">Seleccione una discapacidad</label>
+                                <select name="paciente_discapacidad" class="form-control" id="paciente_discapacidad">
+                                    {% for discapacidad in discapacidades_disponibles %}
+                                        <option value="{{ discapacidad.codigo }}">{{ discapacidad.nombre }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button type="submit" name="agregar_discapacidad" class="btn btn-success mt-2">Agregar discapacidad</button>
+                        </div>
+
+                        <br>
+                        <div class="mt-3">
+                            <h5>Voluntad de donación anticipada</h5>
+                            <div class="form-group">
+                                <label for="voluntad">Documento de voluntad anticipada</label>
+                                <select name="voluntad" class="form-control" id="voluntad">
+                                    <option value="Si" {% if voluntad_anticipada.voluntad == 'Si' %}selected{% endif %}>Sí</option>
+                                    <option value="No" {% if voluntad_anticipada.voluntad == 'No' %}selected{% endif %}>No</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="codigo_prestador">Código del prestador</label>
+                                <input type="text" name="codigo_prestador" class="form-control" id="codigo_prestador" value="{{ voluntad_anticipada.codigo_prestador }}">
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="mt-3">
+                            <h5>Oposición a la presunción legal de donación</h5>
+                            <div class="form-group">
+                                <label for="oposicion">Manifestación de oposición a la presunción legal de donación</label>
+                                <select name="oposicion" class="form-control" id="oposicion">
+                                    <option value="Si" {% if oposicion.manifestacion == 'Si' %}selected{% endif %}>Sí</option>
+                                    <option value="No" {% if oposicion.manifestacion == 'No' %}selected{% endif %}>No</option>
+                                </select>
+                            </div>
+                            <br>
+                        </div>
+
+                        
+
+                        <!-- Botón de guardar -->
+                        <div class="form-group mt-3 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </div>                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'assets/js/editar_paciente.js' %}"></script>
+{% endblock %}
