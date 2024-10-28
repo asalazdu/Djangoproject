@@ -28,8 +28,6 @@ Asegúrate de tener instalado lo siguiente en tu máquina:
         .\venv\Scripts\activate
     - En macOS/Linux:
         python3 -m venv venv
-    1. **Activa el entorno:**
-    - source venv/bin/activate
 4. **Instala las totas las librerias que necesita el proyecto:**
     - En la terminal ejecuta el siguiente comando instalar django:
       pip install -r requirements.txt
