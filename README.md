@@ -21,7 +21,7 @@ Asegúrate de tener instalado lo siguiente en tu máquina:
 3. **Crea un entorno virtual:**
     - En la terminal ejecuta el siguiente comando instalar la libreria virtualenv:
       pip install virtualenv
-    - En la terminal ejecuta el siguiente comando para crear un entorno virutal:
+    - En la terminal ejecuta el siguiente comando para crear un entorno virtual:
     - En Windows:
       virtualenv nombre_del_entorno
     1. **Ativa el entorno:**
