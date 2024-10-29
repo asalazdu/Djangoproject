@@ -140,29 +140,21 @@ def detalleAtencion(request, id):
 
 @login_required
 def editarPaciente(request, id):
-    # Obtener el paciente
     paciente = get_object_or_404(Paciente, Id=id)
 
-    # Obtener las nacionalidades asociadas al paciente
     nacionalidades_asociadas = PacienteNacionalidad.objects.filter(paciente=paciente)
 
-    # Obtener todos los países que no están asociados al paciente
     paises_disponibles = Pais.objects.exclude(pacientenacionalidad__paciente=paciente)
 
-    # Obtener discapacidades asociadas a este paciente
     discapacidades_asociadas = PacienteDiscapacidad.objects.filter(paciente=paciente)
 
-    # Obtener discapacidades no asociadas al paciente
     discapacidades_disponibles = Discapacidad.objects.exclude(pacientediscapacidad__paciente=paciente)
 
-    # Obtener o crear VoluntadAnticipada
     voluntad_anticipada, created = VoluntadAnticipada.objects.get_or_create(paciente=paciente)
 
-    # Obtener o crear VoluntadAnticipada
     oposicion, created = Oposicion.objects.get_or_create(paciente=paciente)
 
     if request.method == 'POST':
-        # Verificar si es una acción de eliminación o adición de discapacidad
         if 'eliminar_discapacidad' in request.POST:
             discapacidad_id = request.POST.get('eliminar_discapacidad')
             discapacidad = get_object_or_404(Discapacidad, codigo=discapacidad_id)
@@ -175,7 +167,6 @@ def editarPaciente(request, id):
             PacienteDiscapacidad.objects.create(paciente=paciente, discapacidad=discapacidad)
             return redirect('editarPaciente', id=paciente.Id)
 
-        # Verificar si es una acción de eliminación o adición de nacionalidad
         if 'eliminar_nacionalidad' in request.POST:
             pais_codigo = request.POST.get('eliminar_nacionalidad')
             pais = get_object_or_404(Pais, codigo=pais_codigo)
@@ -188,17 +179,16 @@ def editarPaciente(request, id):
             PacienteNacionalidad.objects.create(paciente=paciente, pais=pais)
             return redirect('editarPaciente', id=paciente.Id)
 
-        # Si se trata de guardar cambios en el formulario del paciente
         formPaciente = PacienteForm(request.POST, instance=paciente)
         if formPaciente.is_valid():
             formPaciente.save()
             voluntad_anticipada.voluntad = request.POST.get('voluntad')
             voluntad_anticipada.codigo_prestador = request.POST.get('codigo_prestador')
-            voluntad_anticipada.fecha = timezone.now()  # Asigna la fecha actual
+            voluntad_anticipada.fecha = timezone.now()
             voluntad_anticipada.save()
 
             oposicion.manifestacion = request.POST.get('oposicion')
-            oposicion.fecha = timezone.now()  # Asigna la fecha actual
+            oposicion.fecha = timezone.now()
             oposicion.save()
 
             messages.success(request, 'Paciente actualizado con éxito.')
