@@ -5,6 +5,7 @@ from .forms import PacienteForm, ServicioSaludForm, CustomUserCreationForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
 
 
 
@@ -44,6 +45,26 @@ def register(request):
 
     return render(request, "public/login/auth_register.html", contexto)
 
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                messages.success(request, "¡Bienvenido! Has iniciado sesión correctamente.")
+                login(request, user)
+                return redirect('/')
+            else:
+                messages.error(request, "Nombre de usuario o contraseña incorrectos.")
+        else:
+            messages.error(request, "Nombre de usuario o contraseña incorrectos.")
+    else:
+        form = AuthenticationForm()
+
+    return render(request, 'public/login/login.html', {'form': form})
 
 @login_required
 def listarPacientes(request):
