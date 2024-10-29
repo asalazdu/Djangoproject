@@ -1,0 +1,45 @@
+{% extends 'public/login/login.html' %}
+{% load static %}
+{% block title %}Crear cuenta{% endblock %}
+
+{% block body %}
+{% load crispy_forms_tags %}
+
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner">
+      <div class="card">
+        <div class="card-body">
+          <div class="app-brand justify-content-center">
+            <span class="app-brand-logo demo">
+              <img src="{% static 'assets/img/logotipo.png' %}" alt="Logo" style="width: 300px; height: auto;" />
+            </span>
+          </div>
+
+          <form
+            class="mb-3"
+            action=""
+            method="POST">
+            {% csrf_token %}
+            {{ CustomUserCreationForm | crispy }}
+            <button class="btn btn-primary w-100" type="submit">
+              Crear cuenta
+              <i class="bi bi-arrow-right-circle"></i>
+            </button>
+          </form>
+
+          <div class="text-center">
+            <a
+              href="{% url 'accounts' %}"
+              class="d-flex align-items-center justify-content-center">
+              <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
+              volver
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

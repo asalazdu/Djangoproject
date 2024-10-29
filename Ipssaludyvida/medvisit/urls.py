@@ -9,8 +9,10 @@ urlpatterns = [
     path('listarAtenciones', views.listarAtenciones, name='listarAtenciones'),
     path('editarPaciente/<id>', views.editarPaciente, name='editarPaciente'),
     path('editarAtencion/<id>', views.editarAtencion, name='editarAtencion'),
-    path('eliminarPaciente/<id>', views.eliminarPaciente),
-    path('eliminarAtencion/<id>', views.eliminarAtencion),
-    path('detallePaciente/<id>', views.detallePaciente),
-    path('detalleAtencion/<id>', views.detalleAtencion)
+    path('eliminarPaciente/<id>', views.eliminarPaciente, name='eliminarPaciente'),
+    path('eliminarAtencion/<id>', views.eliminarAtencion,  name='eliminarAtencion'),
+    path('detallePaciente/<id>', views.detallePaciente, name='detallePaciente'),
+    path('detalleAtencion/<id>', views.detalleAtencion,  name='detalleAtencion'),
+    path('logout/', views.viewLogout,  name='logout'),
+    path('register/', views.register,  name='register'),
 ]

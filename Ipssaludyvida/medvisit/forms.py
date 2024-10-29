@@ -1,6 +1,20 @@
 from django import forms
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2'
+        ]
 
 class PacienteForm(forms.ModelForm):
     class Meta:
@@ -63,14 +77,11 @@ class PacienteForm(forms.ModelForm):
         Identificacion = self.cleaned_data.get('Identificacion')
         CodigoTipoDocumento = self.cleaned_data.get('CodigoTipoDocumento')
 
-        # Verifica si ya existe un paciente con el mismo número de documento
         if Paciente.objects.filter(Identificacion=Identificacion, CodigoTipoDocumento=CodigoTipoDocumento).exclude(Id=self.instance.Id).exists():
             raise forms.ValidationError("Ya existe un paciente con este número de documento y tipo de documento.")
 
         return Identificacion
     
-
-
 class ServicioSaludForm(forms.ModelForm):
     class Meta:
         model = ServicioSalud

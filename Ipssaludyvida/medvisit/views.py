@@ -1,11 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.contrib import messages
-from .forms import PacienteForm, ServicioSaludForm
+from .forms import PacienteForm, ServicioSaludForm, CustomUserCreationForm
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout, authenticate, login
 
 
 
+
+
+@login_required
 def home(request):
     pacientes = Paciente.objects.all()
     contexto = {
@@ -14,6 +19,33 @@ def home(request):
     
     return render(request, "public/pacientes/lista_pacientes.html", contexto)
 
+
+def viewLogout(request):
+    logout(request)
+    return redirect('/')
+
+def register(request):
+    if request.method == 'POST':
+        user_creation_form = CustomUserCreationForm(data=request.POST)
+        if user_creation_form.is_valid():
+            user_creation_form.save()
+            user = authenticate(
+                username=user_creation_form.cleaned_data['username'],
+                password=user_creation_form.cleaned_data['password1']
+            )
+            login(request, user)
+            return redirect('/')
+    else:
+        user_creation_form = CustomUserCreationForm()
+
+    contexto = {
+        'CustomUserCreationForm': user_creation_form
+    }
+
+    return render(request, "public/login/auth_register.html", contexto)
+
+
+@login_required
 def listarPacientes(request):
     pacientes = Paciente.objects.all()
     contexto = {
@@ -23,6 +55,7 @@ def listarPacientes(request):
     return render(request, "public/pacientes/lista_pacientes.html", contexto)
 
 
+@login_required
 def listarAtenciones(request):
     atenciones = ServicioSalud.objects.all()
     contexto = {
@@ -31,7 +64,7 @@ def listarAtenciones(request):
     
     return render(request, "public/servicioSalud/lista_atenciones.html", contexto)
 
-
+@login_required
 def crearPaciente(request):
     formPaciente = PacienteForm()
     
@@ -53,7 +86,7 @@ def crearPaciente(request):
     return render(request, 'public/pacientes/crear_pacientes.html', {'FormPaciente': formPaciente})
 
 
-
+@login_required
 def crearAtencion(request):
     formAtencion = ServicioSaludForm()
     
@@ -69,20 +102,21 @@ def crearAtencion(request):
 
     return render(request, 'public/servicioSalud/crear_atencion.html', {'FormAtencion': formAtencion})
 
-
+@login_required
 def eliminarPaciente(request, id):
     paciente = Paciente.objects.get(Id=id)
     paciente.delete()
     messages.success(request, 'Paciente eliminado con éxito')
     return redirect('/')
 
-
+@login_required
 def eliminarAtencion(request, id):
     atencion = ServicioSalud.objects.get(Id=id)
     atencion.delete()
     messages.success(request, 'Atención eliminada con éxito')
     return redirect('/listarAtenciones')
 
+@login_required
 def detallePaciente(request, id):
     paciente = Paciente.objects.get(Id=id)
     nacionalidades_asociadas = PacienteNacionalidad.objects.filter(paciente=paciente)
@@ -97,14 +131,14 @@ def detallePaciente(request, id):
                 }
     return render(request, "public/pacientes/detalle_paciente.html", contexto)
 
-
+@login_required
 def detalleAtencion(request, id):
     atencion = ServicioSalud.objects.get(Id=id)
     contexto = {'atencion': atencion,
                 }
     return render(request, "public/servicioSalud/detalle_atencion.html", contexto)
 
-
+@login_required
 def editarPaciente(request, id):
     # Obtener el paciente
     paciente = get_object_or_404(Paciente, Id=id)
@@ -183,18 +217,16 @@ def editarPaciente(request, id):
         'nacionalidades_asociadas': nacionalidades_asociadas,
         'paises_disponibles': paises_disponibles,
     }
-
+    print(paciente.FechaNacimiento)
     return render(request, "public/pacientes/editar_paciente.html", contexto)
 
 
-
+@login_required
 def editarAtencion(request, id):
-    # Obtener atencion
     atencion = get_object_or_404(ServicioSalud, Id=id)
 
     if request.method == 'POST':
 
-        # Si se trata de guardar cambios en el formulario del paciente
         formAtencion = ServicioSaludForm(request.POST, instance=atencion)
         if formAtencion.is_valid():
             formAtencion.save()

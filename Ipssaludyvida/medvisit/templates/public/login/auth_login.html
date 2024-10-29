@@ -1,0 +1,48 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner">
+      <div class="card">
+        <div class="card-body">
+          <div class="app-brand justify-content-center">
+            <span class="app-brand-logo demo">
+              <img src="{% static 'assets/img/logotipo.png' %}" alt="Logo" style="width: 300px; height: auto;" />
+            </span>
+          </div>
+          
+          <form
+            id="formAuthentication"
+            class="mb-3"
+            action=""
+            method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+              {{ form.username|as_crispy_field }}
+            </div>
+            <div class="mb-3 form-password-toggle">
+              {{ form.password|as_crispy_field }}
+              <div class="d-flex justify-content-between">
+                <a href="">
+                  <small>Olvidó su Clave?</small>
+                </a>
+              </div>
+            </div>
+            <div class="mb-3">
+              <button class="btn btn-primary w-100" type="submit">
+                Entrar ahora
+                <i class="bi bi-arrow-right-circle"></i>
+              </button>
+            </div>
+          </form>
+
+          <p class="text-center">
+            <a href="{% url 'register' %}">
+              <span>Crear mi cuenta</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,8 +7,8 @@
   data-assets-path="../assets/"
   data-template="vertical-menu-template-free">
   <head>
+    <title>{% block title %}{% endblock %}</title>
     {% include 'public/includes/head.html' %}
-    {% block customCSS %} {% endblock %}
   </head>
   <body>
     {% include 'public/includes/pre_loader.html' %}
