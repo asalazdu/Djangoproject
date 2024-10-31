@@ -18,6 +18,14 @@
         {% include 'public/includes/menu_sidebar.html' %}
         <div class="layout-page">
           <div class="content-wrapper">
+            {% if user.is_authenticated %}
+                <div class="d-flex justify-content-end mt-3">
+                    <div class="welcome-message">
+                        <i class="bi bi-person-circle me-2"></i>
+                        <strong>{{ user.first_name }} {{ user.last_name }}!</strong>
+                    </div>
+                </div>
+            {% endif %}
             <div class="container-xxl flex-grow-1 container-p-y">
               {% block body %}
               {% endblock %}
