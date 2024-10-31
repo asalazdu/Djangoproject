@@ -34,6 +34,7 @@ def register(request):
                 username=user_creation_form.cleaned_data['username'],
                 password=user_creation_form.cleaned_data['password1']
             )
+            messages.success(request, "¡Se ha creado tu cuenta correctamente.")
             login(request, user)
             return redirect('/')
     else:
@@ -65,6 +66,8 @@ def login_view(request):
         form = AuthenticationForm()
 
     return render(request, 'public/login/login.html', {'form': form})
+
+
 
 @login_required
 def listarPacientes(request):
