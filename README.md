@@ -23,7 +23,7 @@ Asegúrate de tener instalado lo siguiente en tu máquina:
       pip install virtualenv
     - En la terminal ejecuta el siguiente comando para crear un entorno virtual:
     - En Windows:
-      virtualenv nombre_del_entorno
+      python -m venv venv
     1. **Ativa el entorno en windows:**
         .\venv\Scripts\activate
     1. **Ativa el entorno en macOS/Linux:**
